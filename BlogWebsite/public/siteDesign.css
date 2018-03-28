@@ -1,0 +1,161 @@
+.topBar {
+  overflow: hidden;
+  background-color: #2F4249;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 90%;
+  width: 100%;
+}
+
+.topBar Logo {
+  float: left;
+  display: block;
+  padding: 10px 20px;
+}
+
+.topBar a {
+  float: left;
+  display: block;
+  color: #49C294;
+  text-align: center;
+  text-decoration: none;
+  padding: 25px 20px;
+  font-size: 35px;
+}
+
+.topBar a:hover {
+  color: #C0E9CD;
+}
+
+.topBar NameAndPage {
+  color: #8DB197;
+  float: left;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  padding: 25px 20px;
+  font-size: 35px;
+}
+
+.filterSelect {
+  background-color: lightGray;
+  width: 15%;
+  position: fixed;
+  top: 19%;
+  left: 80%;
+}
+
+.filterSelect boxHead {
+  padding: 6px 8px 6px 16px;
+  text-decoration: underline;
+  font-size: 35px;
+  color: black;
+  display: block;
+}
+
+.filterSelect options {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+
+.extrasBox {
+  background-color: lightGray;
+  width: 15%;
+  position: fixed;
+  top: 60%;
+  left: 80%;
+}
+
+.extrasBox boxHead {
+  padding: 6px 8px 6px 16px;
+  text-decoration: underline;
+  font-size: 35px;
+  color: black;
+  display: block;
+}
+
+.extrasBox options {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+
+.postsBox {
+  background-color: lightGray;
+  margin: 2% 5%;
+  margin-right: 25%;
+}
+
+.mainPage {
+  width: 100%;
+  margin-top: 6%;
+  color: black;
+  float: center;
+  display: block;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+}
+
+.mainPage pageTitle {
+  font-weight: bold;
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+.inputArea {
+  text-align: left;
+  background-color: lightGray;
+  margin: 1% 15%;
+  padding-bottom: 2%;
+  border-radius: 5px;
+}
+
+.inputArea headings{
+  margin: 0% 0% 0% 2%;
+  font-size: 35px;
+  text-decoration: none;
+}
+
+.inputArea input[type=text]{
+  font-size: 22px;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0% 5% 2%;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.inputArea input[type=submit]{
+  background-color: #49C294;
+  font-size: 35px;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 1% 5%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inputArea input[type=submit]:hover{
+  background-color: #41B193;
+}
+
+.inputArea textarea{
+  font-size: 22px;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 1% 5%;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
