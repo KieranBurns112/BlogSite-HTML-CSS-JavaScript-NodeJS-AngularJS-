@@ -134,7 +134,7 @@
   box-sizing: border-box;
 }
 
-.inputArea input[type=submit]{
+.inputArea button{
   background-color: #49C294;
   font-size: 35px;
   width: 90%;
@@ -145,7 +145,7 @@
   cursor: pointer;
 }
 
-.inputArea input[type=submit]:hover{
+.inputArea button:hover{
   background-color: #41B193;
 }
 

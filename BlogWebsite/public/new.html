@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="newPost">
   <head>
     <link rel ="stylesheet" href ="siteDesign.css" type ="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="new.js"></script>
     <title> Blog Site </title>
   </head>
   <body>
@@ -19,14 +21,13 @@
 
     <div class="mainPage">
       <pageTitle>Create New Post:</pageTitle>
-      <div class="inputArea">
+      <div class="inputArea" ng-controller="inputListener">
         <headings> Post Title:</headings>
-        <input type="text" id="title" name="PostTitle" placeholder="Post Title...">
+        <input ng-model="post.title" type="text" id="title" name="PostTitle" placeholder="Post Title...">
         <headings>Post Content:</headings>
-        <textarea rows="8" cols="50" id="content" name="PageContent" placeholder="Your Post here..."></textarea>
-        <input type="submit" value="Post" onClick="submitPost">
+        <textarea ng-model="post.content" rows="8" cols="50" id="content" name="PageContent" placeholder="Your Post here..."></textarea>
+        <button ng-click="submitPost(post)">Post</button>
       </div>
     </div>
-    <script type="text/javascript" src="new.js"></script>
   </body>
 </html>
