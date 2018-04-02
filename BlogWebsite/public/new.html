@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="newPost">
+<html ng-app="Post">
   <head>
     <link rel ="stylesheet" href ="siteDesign.css" type ="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="new.js"></script>
-    <title> Blog Site </title>
+    <script src="serverConnect.js"></script>
+    <title>Blog Site</title>
   </head>
   <body>
     <div class="topBar">
@@ -21,7 +21,7 @@
 
     <div class="mainPage">
       <pageTitle>Create New Post:</pageTitle>
-      <div class="inputArea" ng-controller="inputListener">
+      <div class="inputArea" ng-controller="Listener">
         <headings> Post Title:</headings>
         <input ng-model="post.title" type="text" id="title" name="PostTitle" placeholder="Post Title...">
         <headings>Post Content:</headings>

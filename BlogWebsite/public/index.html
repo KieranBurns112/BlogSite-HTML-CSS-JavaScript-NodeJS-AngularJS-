@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Post">
   <head>
     <link rel ="stylesheet" href ="siteDesign.css" type ="text/css"/>
-    <title> Blog Site </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="serverConnect.js"></script>
+    <title>Blog Site</title>
   </head>
   <body>
     <div class="topBar">
@@ -28,10 +30,9 @@
     </div>
 
     <div class="mainPage">
-      <pageTitle>Create New Post:</pageTitle>
-      <div class='postsBox'>
-        <br>
-        <br>
+      <pageTitle id="postHeading">All Posts:</pageTitle>
+      <div class="postsBox" ng-controller="Listener" id="postsBox">
+        
       </div>
     </div>
   </body>
