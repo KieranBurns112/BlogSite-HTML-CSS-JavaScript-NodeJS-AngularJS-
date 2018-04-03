@@ -42,6 +42,7 @@
   background-color: lightGray;
   width: 15%;
   position: fixed;
+  display: inline-block;
   top: 19%;
   left: 80%;
 }
@@ -54,18 +55,21 @@
   display: block;
 }
 
-.filterSelect options {
+.filterSelect button {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
   color: black;
   display: block;
+  background: transparent;
+  border: none;
 }
 
 .extrasBox {
   background-color: lightGray;
   width: 15%;
   position: fixed;
+  display: inline-block;
   top: 60%;
   left: 80%;
 }
@@ -86,6 +90,13 @@
   display: block;
 }
 
+.extrasBox a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+}
+
 .postsBox {
   background-color: lightGray;
   margin: 2% 25% 2% 5%;
@@ -96,6 +107,8 @@
   margin: 2% 5% 0% 5%;
   width: 90%;
   display: inline-block;
+  border-style: solid;
+  border-color: black;
 }
 
 .post postTitle{
@@ -107,6 +120,34 @@
 }
 
 .post postBody{
+  float: left;
+  text-align: left;
+  font-size: 20px;
+  padding: 1%
+}
+
+.postAmDel {
+  background-color: white;
+  margin: 2% 5% 0% 5%;
+  width: 90%;
+  display: inline-block;
+  border-style: solid;
+  border-color: black;
+}
+
+.postAmDel:hover {
+  background-color: #fffdd0
+}
+
+.postAmDel postTitle{
+  padding: 1%;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.postAmDel postBody{
   float: left;
   text-align: left;
   font-size: 20px;
@@ -125,6 +166,7 @@
 }
 
 .mainPage pageTitle {
+  margin: 1%;
   font-weight: bold;
   font-size: 50px;
   text-decoration: underline;

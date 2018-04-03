@@ -19,20 +19,22 @@
       </div>
     </div>
 
-    <div class="filterSelect">
+    <div class="filterSelect" ng-controller="Listener">
       <boxHead>Filter By:</boxHead>
-      <options></options>
+      <button ng-click="displayNewest()">Newest First</button>
+      <button ng-click="displayOldest()">Oldest First</button>
     </div>
 
     <div class="extrasBox">
       <boxHead>Contact and External links:</boxHead>
-      <options></options>
+      <options>Email: 40272382@napier.ac.uk</options>
+      <a href="https://github.com/KieranBurns112">Github Link</a>
     </div>
 
     <div class="mainPage">
       <pageTitle id="postHeading">All Posts:</pageTitle>
       <div class="postsBox" ng-controller="Listener" id="postsBox">
-        
+
       </div>
     </div>
   </body>
