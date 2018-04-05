@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var MongoClient = require('mongodb').MongoClient;
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
 var url = "mongodb://postsDB:13DBPost@ds231529.mlab.com:31529/posts"; //DB hosted on mlab.com
 
 var mydb;
@@ -28,21 +29,37 @@ app.get('/posts', (req, res) => {
   });
 });
 
+app.get('/posts/:id', (req, res) => {
+  var cursor = mydb.collection('allposts').findOne({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
+    res.send(result);
+  });
+});
+
 app.post('/posts', (req, res) => {
   mydb.collection('allposts').save(req.body, (err, result) => {
       if (err) throw err;
     });
 });
 
-app.delete('/posts',(req, res) => {
-  mydb.collection('allposts').remove(req.body.id, (err, result) => {
+app.put('/posts/:id', (req, res) => {
+  var updatePost = req.body;
+  mydb.collection('allposts').updateOne({_id: mongodb.ObjectID( req.params.id)}, {
+    $set: {"title" : updatePost.title, "content" : updatePost.content}
+  }, (err, result) => {
+    if (err) throw err;
+  });
+});
+
+app.delete('/posts/:id',(req, res) => {
+  mydb.collection('allposts').deleteOne({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
       if (err) throw err;
     });
 });
 
 
 app.get('/users', (req, res) => {
-  var cursor = mydb.collection('allusers').find().toArray(function(err, results) {
+  mydb.collection('allusers').find().toArray(function(err, results) {
+    if (err) throw err;
     res.send(results);
   });
 });

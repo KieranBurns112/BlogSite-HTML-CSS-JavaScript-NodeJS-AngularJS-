@@ -145,6 +145,32 @@
   padding: 1%
 }
 
+.deleteButton{
+  float:right;
+  color: #c62b2b;
+  margin: 1%;
+  background: transparent;
+  border: none;
+  font-size: 25px;
+}
+
+.deleteButton:hover {
+  color: #f48686;
+}
+
+.amendButton{
+  float:right;
+  color: #938a00;
+  margin: 1%;
+  background: transparent;
+  border: none;
+  font-size: 25px;
+}
+
+.amendButton:hover {
+  color: #e8dd37;
+}
+
 .mainPage {
   width: 100%;
   margin-top: 6%;
