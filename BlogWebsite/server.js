@@ -12,6 +12,9 @@ MongoClient.connect(url, function(err, db) {
   mydb.createCollection('allposts', function(err, res) {
     if (err) throw err;
   });
+  mydb.createCollection('allusers', function(err, res) {
+    if (err) throw err;
+  });
 });
 
 app.use(express.static(__dirname + '/public'));
@@ -22,13 +25,32 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/posts', (req, res) => {
   var cursor = mydb.collection('allposts').find().toArray(function(err, results) {
     res.send(results);
-  })
-})
+  });
+});
 
 app.post('/posts', (req, res) => {
   mydb.collection('allposts').save(req.body, (err, result) => {
       if (err) throw err;
-    })
-})
+    });
+});
+
+app.delete('/posts',(req, res) => {
+  mydb.collection('allposts').remove(req.body.id, (err, result) => {
+      if (err) throw err;
+    });
+});
+
+
+app.get('/users', (req, res) => {
+  var cursor = mydb.collection('allusers').find().toArray(function(err, results) {
+    res.send(results);
+  });
+});
+
+app.post('/users', (req, res) => {
+  mydb.collection('allusers').save(req.body, (err, result) => {
+      if (err) throw err;
+    });
+});
 
 app.listen(3000);

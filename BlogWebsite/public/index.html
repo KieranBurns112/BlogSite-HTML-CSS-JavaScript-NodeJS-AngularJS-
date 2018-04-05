@@ -1,41 +1,67 @@
 <!DOCTYPE html>
-<html ng-app="Post">
+<html ng-app='Post' ng-controller='Listener'>
   <head>
-    <link rel ="stylesheet" href ="siteDesign.css" type ="text/css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="serverConnect.js"></script>
+    <link rel ='stylesheet' href ='siteDesign.css' type ='text/css'/>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js'></script>
+    <script src='serverConnect.js'></script>
     <title>Blog Site</title>
   </head>
   <body>
-    <div class="topBar">
-      <Logo><img src="logo.png" height="20%" width="20%"></Logo>
-      <NameAndPage>Home</NameAndPage>
-      <a href="new.html">New Post</a>
-      <a href="#">Edit Post</a>
-      <a href="#">Delete Post</a>
-      <div id="notLogged" style="float:right">
-        <a href="#">Sign Up</a>
-        <a href="#">Log In</a>
+    <div class='topBar'>
+      <Logo><img src='logo.png' height='20%' width='20%'></Logo>
+      <button ng-click='newPostForm()'>New Post</button>
+      <div id='logStatus' style='float:right'>
+        <button ng-click='signUpForm()'>Sign Up</button>
+        <button ng-click='logInForm()'>Log In</button>
       </div>
     </div>
 
-    <div class="filterSelect" ng-controller="Listener">
+    <div class='filterSelect'>
       <boxHead>Filter By:</boxHead>
-      <button ng-click="displayNewest()">Newest First</button>
-      <button ng-click="displayOldest()">Oldest First</button>
+      <button ng-click='loadPosts("Newest")'>Newest First</button>
+      <button ng-click='loadPosts("Oldest")'>Oldest First</button>
     </div>
 
-    <div class="extrasBox">
+    <div class='extrasBox'>
       <boxHead>Contact and External links:</boxHead>
       <options>Email: 40272382@napier.ac.uk</options>
-      <a href="https://github.com/KieranBurns112">Github Link</a>
+      <a href='https://github.com/KieranBurns112'>Github Link</a>
     </div>
 
-    <div class="mainPage">
-      <pageTitle id="postHeading">All Posts:</pageTitle>
-      <div class="postsBox" ng-controller="Listener" id="postsBox">
+    <div class='mainPage'>
 
+      <div id='postModal' class='modal'>
+        <div class='inputArea'>
+          <headings> Post Title:</headings>
+          <input ng-model='post.title' type='text' id='title' name='PostTitle' placeholder='Post Title...'>
+          <headings>Post Content:</headings>
+          <textarea ng-model='post.content' rows='8' cols='50' id='content' name='PageContent' placeholder='Your Post here...'></textarea>
+          <button ng-click='newPost(post)'>Post</button>
+        </div>
       </div>
+
+      <div id='logInModal' class='modal'>
+        <div class='inputArea'>
+          <headings> User Name:</headings>
+          <input ng-model='user.userName' type='text' id='logInUserName' name='logInUserName' placeholder='User Name...'>
+          <headings>Password:</headings>
+          <input ng-model='user.password' type='password' id='logInPassword' name='logInPassword' placeholder='Password...'>
+          <button ng-click='logIn(user)'>Log In</button>
+        </div>
+      </div>
+
+      <div id='signUpModal' class='modal'>
+        <div class='inputArea'>
+          <headings> User Name:</headings>
+          <input ng-model='user.userName' type='text' id='signUpUserName' name='signUpUserName' placeholder='User Name...'>
+          <headings>Password:</headings>
+          <input ng-model='user.password' type='password' id='signUpPassword' name='signUpPassword' placeholder='Password...'>
+          <button ng-click='signUp(user)'>Sign Up</button>
+        </div>
+      </div>
+
+      <pageTitle id='postHeading'>All Posts:</pageTitle>
+      <div class='postsBox' id='postsBox'></div>
     </div>
   </body>
 </html>

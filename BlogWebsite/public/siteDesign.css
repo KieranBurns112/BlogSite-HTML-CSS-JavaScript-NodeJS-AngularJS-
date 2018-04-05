@@ -14,28 +14,43 @@
   padding: 10px 20px;
 }
 
-.topBar a {
+.topBar button {
   float: left;
   display: block;
   color: #49C294;
   text-align: center;
   text-decoration: none;
-  padding: 25px 20px;
+  padding: 25px 35px;
   font-size: 35px;
+  background: transparent;
+  border: none;
 }
 
-.topBar a:hover {
+.topBar button:hover {
   color: #C0E9CD;
 }
 
-.topBar NameAndPage {
-  color: #8DB197;
+.topBar name {
   float: left;
   display: block;
+  color: #8DB197;
   text-align: center;
-  font-weight: bold;
-  padding: 25px 20px;
+  text-decoration: none;
+  padding: 25px 35px;
   font-size: 35px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .filterSelect {
@@ -63,6 +78,10 @@
   display: block;
   background: transparent;
   border: none;
+}
+
+.filterSelect button:hover {
+  color:#808080
 }
 
 .extrasBox {
@@ -126,34 +145,6 @@
   padding: 1%
 }
 
-.postAmDel {
-  background-color: white;
-  margin: 2% 5% 0% 5%;
-  width: 90%;
-  display: inline-block;
-  border-style: solid;
-  border-color: black;
-}
-
-.postAmDel:hover {
-  background-color: #fffdd0
-}
-
-.postAmDel postTitle{
-  padding: 1%;
-  float: left;
-  text-align: left;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.postAmDel postBody{
-  float: left;
-  text-align: left;
-  font-size: 20px;
-  padding: 1%
-}
-
 .mainPage {
   width: 100%;
   margin-top: 6%;
@@ -187,6 +178,17 @@
 }
 
 .inputArea input[type=text]{
+  font-size: 22px;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 0% 5% 2%;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.inputArea input[type=password]{
   font-size: 22px;
   width: 90%;
   padding: 12px 20px;

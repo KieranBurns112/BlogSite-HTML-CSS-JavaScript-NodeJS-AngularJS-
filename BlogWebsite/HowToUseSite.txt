@@ -1,0 +1,15 @@
+To use the website you must:
+- Open node.js command prompt
+- Navigate to this directory
+- Type 'node server' then press center
+- Open the web browser of your choice
+- Navigate to 'localhost:3000'
+
+Once on the site to gain Edit and Delete permission for ANY post:
+- Click 'Log In' in the top right hand corner
+- Username: Admin
+- Password: 123adminaccess123
+- Click the large 'Log In button'
+Alternatively, you can click sign up and create a new account, this will left
+you create new posts and Edit and Delete post which you create with that
+account, but WILL NOT allow you to edit those created by other accounts.
