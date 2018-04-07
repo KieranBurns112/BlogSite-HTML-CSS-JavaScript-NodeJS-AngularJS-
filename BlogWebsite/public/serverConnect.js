@@ -76,11 +76,12 @@
 
     function newPost(post) {
       post.userName = userName;
-      $http.post('/posts', post);
-      postModal.style.display = "none";
-      document.getElementById('title').value = '';
-      document.getElementById('content').value = '';
-      loadPosts('Newest');
+      $http.post('/posts', post).then(function() {
+        postModal.style.display = "none";
+        document.getElementById('title').value = '';
+        document.getElementById('content').value = '';
+        loadPosts('Newest');
+      });
     }
 
     function amendPostForm(postId) {
@@ -101,14 +102,16 @@
       var updatePost = new Object();
       updatePost.title = document.getElementById('amendTitle').value;
       updatePost.content = document.getElementById('amendContent').value;
-      $http.put('/posts/' + postId, updatePost);
-      amendModal.style.display = "none";
-      loadPosts('Newest');
+      $http.put('/posts/' + postId, updatePost).then(function() {
+        amendModal.style.display = "none";
+        loadPosts('Newest');
+      });
     }
 
     function deletePost(postId) {
-      $http.delete('/posts/' + postId);
-      loadPosts('Newest');
+      $http.delete('/posts/' + postId).then(function() {
+        loadPosts('Newest');
+      });
     }
 
     function logInForm() {
@@ -118,7 +121,7 @@
     function logIn(user) {
       var userExists = false;
       var logInSuccess = false;
-      $http.get('/users').then(function(users){
+      $http.get('/users').then(function(users) {
         for(var i = 0; i < users.data.length; i++) {
           if (user.userName === users.data[i].userName) {
             userExists = true;
@@ -176,13 +179,14 @@
 
         if (!userExists) {
           if (user.password != null) {
-            $http.post('/users', user);
-            signUpModal.style.display = "none";
-            document.getElementById('signUpUserName').value = '';
-            document.getElementById('signUpPassword').value = '';
-            document.getElementById('logInUserName').value = '';
-            document.getElementById('logInPassword').value = '';
-            loadPosts('Newest');
+            $http.post('/users', user).then(function() {
+              signUpModal.style.display = "none";
+              document.getElementById('signUpUserName').value = '';
+              document.getElementById('signUpPassword').value = '';
+              document.getElementById('logInUserName').value = '';
+              document.getElementById('logInPassword').value = '';
+              loadPosts('Newest');
+            });
           }
           else {
             alert("Password field is blank!");

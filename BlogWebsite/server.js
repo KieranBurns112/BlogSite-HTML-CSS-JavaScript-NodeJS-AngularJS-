@@ -25,19 +25,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/posts', (req, res) => {
    mydb.collection('allposts').find().toArray(function(err, results) {
-    res.send(results);
+     if (err) throw err;
+     res.send(results);
   });
 });
 
 app.get('/posts/:id', (req, res) => {
   mydb.collection('allposts').findOne({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
-    res.send(result);
+    if (err) throw err;
+    res.send();
   });
 });
 
 app.post('/posts', (req, res) => {
   mydb.collection('allposts').save(req.body, (err, result) => {
       if (err) throw err;
+      res.send();
     });
 });
 
@@ -47,12 +50,14 @@ app.put('/posts/:id', (req, res) => {
     $set: {"title" : updatePost.title, "content" : updatePost.content}
   }, (err, result) => {
     if (err) throw err;
+    res.send();
   });
 });
 
 app.delete('/posts/:id',(req, res) => {
   mydb.collection('allposts').deleteOne({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
       if (err) throw err;
+      res.send();
     });
 });
 
@@ -67,6 +72,7 @@ app.get('/users', (req, res) => {
 app.post('/users', (req, res) => {
   mydb.collection('allusers').save(req.body, (err, result) => {
       if (err) throw err;
+      res.send();
     });
 });
 
