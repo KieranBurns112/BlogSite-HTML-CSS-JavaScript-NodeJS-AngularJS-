@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/posts', (req, res) => {
-  mydb.collection('allposts').find().toArray(function(err, results) {
+   mydb.collection('allposts').find().toArray(function(err, results) {
     res.send(results);
   });
 });
@@ -55,6 +55,7 @@ app.delete('/posts/:id',(req, res) => {
       if (err) throw err;
     });
 });
+
 
 app.get('/users', (req, res) => {
   mydb.collection('allusers').find().toArray(function(err, results) {
