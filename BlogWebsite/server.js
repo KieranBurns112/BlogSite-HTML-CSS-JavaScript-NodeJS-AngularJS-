@@ -33,7 +33,7 @@ app.get('/posts', (req, res) => {
 app.get('/posts/:id', (req, res) => {
   mydb.collection('allposts').findOne({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
     if (err) throw err;
-    res.send();
+    res.send(result);
   });
 });
 
