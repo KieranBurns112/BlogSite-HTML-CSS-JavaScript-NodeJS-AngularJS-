@@ -166,38 +166,41 @@
     }
 
     function signUp(user) {
-      var userExists = false;
-
       if (user.userName != null) {
+        var newUser = user.userName;
         $http.get('/users', user).then(function(users){
+          var userExists = false;
           for(var i = 0; i < users.data.length; i++) {
-            if (user.UserName === users.data[i].userName) {
+            var currentUserName = (users.data[i].userName);
+            if (newUser === currentUserName) {
               userExists = true;
             }
           }
-        });
 
-        if (!userExists) {
-          if (user.password != null) {
-            $http.post('/users', user).then(function() {
-              signUpModal.style.display = "none";
-              document.getElementById('signUpUserName').value = '';
-              document.getElementById('signUpPassword').value = '';
-              document.getElementById('logInUserName').value = '';
-              document.getElementById('logInPassword').value = '';
-              loadPosts('Newest');
-            });
+          if (!userExists) {
+            console.log(user.password);
+            if (user.password != undefined) {
+              $http.post('/users', user).then(function() {
+                signUpModal.style.display = "none";
+                document.getElementById('signUpUserName').value = '';
+                document.getElementById('signUpPassword').value = '';
+                document.getElementById('logInUserName').value = '';
+                document.getElementById('logInPassword').value = '';
+                loadPosts('Newest');
+              });
+            }
+            else {
+              alert("Password field is blank!");
+            }
           }
           else {
-            alert("Password field is blank!");
+            alert("Username is already taken!");
+            userExists = false;
           }
-        }
-        else {
-          alert("Username is already taken!");
-        }
+        });
       }
       else {
-        alert("Password field is blank!");
+        alert("Username field is blank!");
       }
     }
 
@@ -212,21 +215,21 @@
       angular.element(document.getElementById('logStatus')).append(temp);
       loadPosts('Newest');
     }
-  }
+
 
     window.onclick = function(event) {
       if (event.target == postModal) {
-          postModal.style.display = "none";
-          document.getElementById('title').value = '';
-          document.getElementById('content').value = '';
+        postModal.style.display = "none";
+        document.getElementById('title').value = '';
+        document.getElementById('content').value = '';
       }
       if (event.target == amendModal) {
-          amendModal.style.display = "none";
+        amendModal.style.display = "none";
       }
       if (event.target == logInModal) {
-          logInModal.style.display = "none";
-          document.getElementById('logInUserName').value = '';
-          document.getElementById('logInPassword').value = '';
+        logInModal.style.display = "none";
+        document.getElementById('logInUserName').value = '';
+        document.getElementById('logInPassword').value = '';
       }
       if (event.target == signUpModal) {
           signUpModal.style.display = "none";
@@ -234,4 +237,5 @@
           document.getElementById('signUpPassword').value = '';
       }
     }
+  }
 })();
